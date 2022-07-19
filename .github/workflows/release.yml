@@ -1,9 +1,9 @@
 name: Release
 on:
   push:
-    branches: [ main ]
+    branches: [ main, alpha, beta ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, alpha, beta ]
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -18,7 +18,15 @@ jobs:
       with:
         branches: |    
           [
-            'main'
+            'main',
+            {
+              name: 'beta', 
+              prerelease: true
+            }, 
+            {
+              name: 'alpha', 
+              prerelease: true
+            }
           ]
         extra_plugins: |
           @semantic-release/commit-analyzer
