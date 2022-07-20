@@ -11,7 +11,7 @@ class Response {
    public:
     Response() { body_ = "Target not found"; }
     std::string body() { return body_; }
-    std::string body(const std::string &other_body) {
+    std::string set_body(const std::string &other_body) {
         body_ = other_body;
         return body_;
     }

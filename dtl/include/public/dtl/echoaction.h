@@ -10,7 +10,7 @@ class EchoAction {
     static Target Target() { return std::string("/echo"); }
     static Response Get(const Request &request) {
         auto response = Response();
-        response.body(request.body());
+        response.set_body(request.body());
         return response;
     }
 };
